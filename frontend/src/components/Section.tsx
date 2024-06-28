@@ -33,12 +33,10 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(({ isVisible, ind
       animate={controls}
       variants={variants}
     >
-      <>
-        <div className={styles.copy}>
-          {index === 0 && <SlideOne />}
-          {index === 1 && <SlideTwo />}
-        </div>
-      </>
+      <div>
+        {index === 0 && <SlideOne />}
+        {index === 1 && <SlideTwo />}
+      </div>
     </motion.section>
   );
 });

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import styles from '@/styles/Header.module.scss';
 import LindButton from './LinkButton';
 
-const inter = Inter({ subsets: ['latin'] });
-
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 interface Props {
   isVisible: boolean;
 }
@@ -27,21 +29,23 @@ const Header: React.FC<Props> = ({ isVisible }) => {
   }, []);
 
   return (
-    <header className={`${styles.header} ${inter.className}`}>
-      <div>
-        <Image
-          src="/images/logo.svg"
-          alt="Logo"
-          width={isMobile ? 75 : 100}
-          height={isMobile ? 50 : 67}
-        />
+    <header className={`${styles.header} ${poppins.className}`}>
+      <div className={styles['header__inner']}>
+        <div>
+          <Image
+            src="/images/logo.svg"
+            alt="Logo"
+            width={isMobile ? 100 : 150}
+            height={isMobile ? 59 : 100}
+          />
+        </div>
+        {isVisible && (
+          <LindButton
+            text="Discover More"
+            link="https://google.com"
+          />
+        )}
       </div>
-      {isVisible && (
-        <LindButton
-          text="Discover More"
-          link="https://google.com"
-        />
-      )}
     </header>
   );
 };
