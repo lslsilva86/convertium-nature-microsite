@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Section from '@/components/Section';
 import NavIndicators from '@/components/NavIndicators';
 import Header from '@/components/Header';
+import DownArrowButton from '@/components/DownArrowButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -90,6 +91,10 @@ export default function Home() {
           sections={[0, 1]}
           currentSectionIndex={currentSectionIndex}
           onIndicatorClick={handleIndicatorClick}
+        />
+        <DownArrowButton
+          onClick={() => navigateToSection('down')}
+          isVisible={currentSectionIndex === 0}
         />
       </main>
     </>

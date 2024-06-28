@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import styles from '@/styles/Header.module.scss';
+import LindButton from './LinkButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
-interface HeaderProps {
+interface Props {
   isVisible: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ isVisible }) => {
+const Header: React.FC<Props> = ({ isVisible }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -36,12 +37,10 @@ const Header: React.FC<HeaderProps> = ({ isVisible }) => {
         />
       </div>
       {isVisible && (
-        <a
-          href="/"
-          className={styles['header__link']}
-        >
-          Discover More
-        </a>
+        <LindButton
+          text="Discover More"
+          link="https://google.com"
+        />
       )}
     </header>
   );
