@@ -8,6 +8,11 @@
   width: 100%;
   padding: 10px 20px;
   background-color: transparent;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @include breakpoint('xl') {
@@ -15,9 +20,6 @@
     &__inner {
       width: 1200px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
   }
 }

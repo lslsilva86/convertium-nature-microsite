@@ -1,4 +1,6 @@
-@import './site/variables.scss';
+@import './site/variables';
+@import './site/mixins';
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -13,4 +15,37 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+.swiper {
+  .swiper-button-prev {
+    display: none;
+  }
+  .swiper-button-next {
+    &::after {
+      font-size: 4rem;
+      color: black;
+    }
+  }
+}
+
+@include breakpoint('xl') {
+  .swiper {
+    .swiper-button-next {
+      height: 300px;
+      top: 22px;
+      background: black;
+      width: 100px;
+      right: 0;
+      &::after {
+        font-size: 4rem;
+        color: white;
+        opacity: 0.6;
+      }
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
