@@ -64,6 +64,7 @@ export default function Home() {
             }
           }}
           isVisible={currentSectionIndex === 0}
+          index={0}
         />
         <Section
           ref={(el) => {
@@ -72,6 +73,7 @@ export default function Home() {
             }
           }}
           isVisible={currentSectionIndex === 1}
+          index={1}
         />
       </main>
     </>

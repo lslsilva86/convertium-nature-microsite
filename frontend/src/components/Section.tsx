@@ -1,12 +1,15 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import styles from './Section.module.scss';
+import SlideOne from './SlideOne';
+import SlideTwo from './SlideTwo';
 
 interface SectionProps {
   isVisible: boolean;
+  index: number;
 }
 
-const Section = React.forwardRef<HTMLDivElement, SectionProps>(({ isVisible }, ref) => {
+const Section = React.forwardRef<HTMLDivElement, SectionProps>(({ isVisible, index }, ref) => {
   const controls = useAnimation();
 
   React.useEffect(() => {
@@ -30,9 +33,12 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(({ isVisible }, r
       animate={controls}
       variants={variants}
     >
-      <div className={styles.copy}>
-        <h2>Heading</h2>
-      </div>
+      <>
+        <div className={styles.copy}>
+          {index === 0 && <SlideOne />}
+          {index === 1 && <SlideTwo />}
+        </div>
+      </>
     </motion.section>
   );
 });
