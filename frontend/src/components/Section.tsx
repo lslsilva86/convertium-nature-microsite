@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import styles from './Section.module.scss';
+import styles from '@/styles/Section.module.scss';
 import SlideOne from './SlideOne';
 import SlideTwo from './SlideTwo';
 

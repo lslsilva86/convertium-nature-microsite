@@ -2,6 +2,9 @@ $primary: #1d683e;
 $secondary: #3bae51;
 $text: #043233;
 
+// z-index
+$z-index-header: 1000;
+
 // Primary color variations
 $primary-lighten-10: lighten($primary, 10%);
 $primary-lighten-20: lighten($primary, 20%);
