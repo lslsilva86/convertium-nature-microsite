@@ -10,6 +10,7 @@ const SlideTwo: React.FC<Props> = (props) => {
     <div className={styles['slide-two']}>
       <ResponsiveBgImage />
       <div className={styles['slide-two__content']}>
+        <h2>DONEC NEC JUSTO</h2>
         <Carousel />
       </div>
     </div>
