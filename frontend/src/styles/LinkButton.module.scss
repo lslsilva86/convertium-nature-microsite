@@ -1,4 +1,5 @@
 @import './site/variables';
+@import './site/mixins';
 
 $black: $light-darken-20;
 $white: $light-lighten-10;
@@ -13,7 +14,6 @@ $arrow-head-thickness: $shaft-thickness;
 
 .link {
   display: inline-block;
-  margin-right: $newshaft-width + $text-arrow-space;
   position: relative;
   transition: all 0.2s;
   color: $black;
@@ -103,43 +103,51 @@ $arrow-head-thickness: $shaft-thickness;
 
   &:hover {
     color: $gray;
+  }
+}
 
-    .link__arrow--left .link__arrow-shaft {
-      width: $newshaft-width;
-      transition-delay: 0.1s;
-      background-color: $gray;
-      &:before,
-      &:after {
-        width: $arrow-head-width;
+@include breakpoint('md') {
+  .link {
+    margin-right: $newshaft-width + $text-arrow-space;
+
+    &:hover {
+      .link__arrow--left .link__arrow-shaft {
+        width: $newshaft-width;
         transition-delay: 0.1s;
         background-color: $gray;
-      }
-      &:before {
-        transform: rotate(40deg);
-      }
-      &:after {
-        transform: rotate(-40deg);
-      }
-    }
-
-    .link__main {
-      transform: translateX($newshaft-width + $text-arrow-space);
-
-      .link__arrow--right .link__arrow-shaft {
-        width: 0;
-        transform: translateX(200%);
-        transition-delay: 0;
         &:before,
         &:after {
-          width: 0;
-          transition-delay: 0;
-          transition: all 0.1s;
+          width: $arrow-head-width;
+          transition-delay: 0.1s;
+          background-color: $gray;
         }
         &:before {
-          transform: rotate(0);
+          transform: rotate(40deg);
         }
         &:after {
-          transform: rotate(0);
+          transform: rotate(-40deg);
+        }
+      }
+
+      .link__main {
+        transform: translateX($newshaft-width + $text-arrow-space);
+
+        .link__arrow--right .link__arrow-shaft {
+          width: 0;
+          transform: translateX(200%);
+          transition-delay: 0;
+          &:before,
+          &:after {
+            width: 0;
+            transition-delay: 0;
+            transition: all 0.1s;
+          }
+          &:before {
+            transform: rotate(0);
+          }
+          &:after {
+            transform: rotate(0);
+          }
         }
       }
     }
