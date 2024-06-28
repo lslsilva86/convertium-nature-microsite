@@ -1,9 +1,11 @@
 $primary: #1d683e;
 $secondary: #3bae51;
 $text: #043233;
+$light: #a3a3a3;
 
 // z-index
 $z-index-header: 1000;
+$z-index-down-arrow: 100;
 
 // Primary color variations
 $primary-lighten-10: lighten($primary, 10%);
@@ -28,6 +30,10 @@ $text-darken-10: darken($text, 10%);
 $text-darken-20: darken($text, 20%);
 $text-saturate-10: saturate($text, 10%);
 $text-desaturate-10: desaturate($text, 10%);
+
+// Text color variations
+$light-lighten-10: lighten($light, 10%);
+$light-darken-20: darken($light, 20%);
 
 // :root {
 //   --primary: $primary;
