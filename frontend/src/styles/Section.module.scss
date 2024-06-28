@@ -1,55 +1,12 @@
 @import './site/mixins.scss';
 
-// .section {
-//   height: 100vh;
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   scroll-snap-align: center;
-
-//   &:nth-child(even) {
-//     background-color: red;
-//   }
-
-//   &:nth-child(odd) {
-//     background-color: green;
-//   }
-// }
-
-// .copy {
-//   h2 {
-//     position: relative;
-//     z-index: 1;
-//     font-size: 1.4rem;
-//     font-weight: 700;
-//     color: #fff;
-//     text-align: center;
-//   }
-// }
-
-// @include breakpoint('md') {
-//   .copy {
-//     h2 {
-//       font-size: 3rem;
-//     }
-//   }
-// }
-
 .section {
-  height: 100vh;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   top: 0;
   left: 0;
+  height: 100vh;
   width: 100%;
-  &:nth-child(even) {
-    background-color: black;
-  }
-
-  &:nth-child(odd) {
-    background-color: gray;
-  }
 }

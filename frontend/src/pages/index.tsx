@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
 import Head from 'next/head';
 import Section from '@/components/Section';
@@ -7,7 +7,10 @@ import NavIndicators from '@/components/NavIndicators';
 import Header from '@/components/Header';
 import DownArrowButton from '@/components/DownArrowButton';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 
 export default function Home() {
   const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -68,7 +71,7 @@ export default function Home() {
         />
       </Head>
       <Header isVisible={currentSectionIndex === 1} />
-      <main className={`${styles.home} ${inter.className}`}>
+      <main className={`${styles.home} ${poppins.className}`}>
         <Section
           ref={(el) => {
             if (el) {
