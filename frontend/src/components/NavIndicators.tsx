@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NavIndicators.module.scss';
+import styles from '@/styles/NavIndicators.module.scss';
 
 interface Props {
   sections: number[];

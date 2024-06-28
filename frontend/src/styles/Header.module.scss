@@ -1,0 +1,24 @@
+@import '../styles/scss/variables.scss';
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  z-index: $z-index-header;
+
+  &__link {
+    font-size: 16px;
+    color: #1d683e;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #3bae51;
+    }
+  }
+}

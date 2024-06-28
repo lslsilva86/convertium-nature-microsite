@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.scss';
 import Head from 'next/head';
 import Section from '@/components/Section';
 import NavIndicators from '@/components/NavIndicators';
+import Header from '@/components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -65,6 +66,7 @@ export default function Home() {
           href="/favicon.ico"
         />
       </Head>
+      <Header isVisible={currentSectionIndex === 1} />
       <main className={`${styles.home} ${inter.className}`}>
         <Section
           ref={(el) => {
