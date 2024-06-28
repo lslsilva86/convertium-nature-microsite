@@ -1,0 +1,8 @@
+{
+  "title": "DONEC NEC JUSTO",
+  "backgroundImages": {
+    "xl": "/assets/images/img-1920x1200.jpg",
+    "md": "/assets/images/img-1280x800.jpg",
+    "sm": "/assets/images/img-800x368.jpg"
+  }
+}
