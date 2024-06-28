@@ -1,8 +1,9 @@
-import Head from 'next/head';
+import { useEffect, useRef, useState } from 'react';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
+import Head from 'next/head';
 import Section from '@/components/Section';
-import { useEffect, useRef, useState } from 'react';
+import NavIndicators from '@/components/NavIndicators';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,6 +37,14 @@ export default function Home() {
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
       setCurrentSectionIndex(nextSectionIndex);
+    }
+  };
+
+  const handleIndicatorClick = (index: number) => {
+    const nextSection = sectionsRef.current[index];
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+      setCurrentSectionIndex(index);
     }
   };
 
@@ -74,6 +83,11 @@ export default function Home() {
           }}
           isVisible={currentSectionIndex === 1}
           index={1}
+        />
+        <NavIndicators
+          sections={[0, 1]}
+          currentSectionIndex={currentSectionIndex}
+          onIndicatorClick={handleIndicatorClick}
         />
       </main>
     </>
