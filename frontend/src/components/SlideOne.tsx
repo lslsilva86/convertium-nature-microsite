@@ -40,7 +40,10 @@ const SlideOne: React.FC = () => {
 
   if (data) {
     return (
-      <div className={styles['slide-one']}>
+      <div
+        className={styles['slide-one']}
+        role="region"
+      >
         <FullScreenVideo videoUrl={data.videoUrl} />
         <div className={styles['slide-one__content']}>
           <h1>{data.content.title}</h1>

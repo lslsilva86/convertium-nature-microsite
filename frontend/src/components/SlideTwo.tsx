@@ -39,13 +39,13 @@ const SlideTwo: React.FC = () => {
   if (loading) {
     return <Loader elmClass="slideTwo" />;
   }
-  if (error) {
-    return <p>{error}</p>;
-  }
 
   if (data) {
     return (
-      <div className={styles['slide-two']}>
+      <div
+        className={styles['slide-two']}
+        role="region"
+      >
         <ResponsiveBgImage backgroundImages={data.backgroundImages} />
         <div className={styles['slide-two__content']}>
           <h2>{data.title}</h2>

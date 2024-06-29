@@ -7,7 +7,12 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({ elmClass }) => {
   const loaderClasses = `loader ${elmClass}`;
 
-  return <div className={loaderClasses}></div>;
+  return (
+    <div
+      className={loaderClasses}
+      role="status"
+    ></div>
+  );
 };
 
 export default Loader;
