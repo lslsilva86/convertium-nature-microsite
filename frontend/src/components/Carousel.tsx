@@ -1,61 +1,90 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Autoplay } from 'swiper/modules';
 import style from '@/styles/Carousel.module.scss';
+import axios from 'axios';
+import Loading from './Loader';
+import AlertBox from './AlertBox';
 
 interface Slide {
+  id: number;
   title: string;
-  content: string;
+  description: string;
 }
 
-const slides: Slide[] = [
-  {
-    title: 'Lorem ipsum #1',
-    content: 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.',
-  },
-  { title: 'Lorem ipsum #2', content: ' Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat.' },
-  { title: 'Lorem ipsum #3', content: 'Eros pede est, vitae luctus metus libero eu augue.' },
-  { title: 'Lorem ipsum #4', content: 'Aenean dignissim pellentesque felis sed egestas, ante et vulputate volutpat.' },
-  { title: 'Lorem ipsum #5', content: 'Eros pede est, vitae luctus metus libero eu augue.' },
-];
+interface ApiResponse {
+  slides: Slide[];
+}
 
 const Carousel: React.FC = () => {
+  const [slides, setSlides] = useState<Slide[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await axios.get<ApiResponse>(`${process.env.NEXT_PUBLIC_API_URL as string}/carousel`);
+        setSlides(response.data.slides);
+        setLoading(false);
+      } catch (error) {
+        console.error('Failed to fetch slides:', error);
+        setError('Failed to fetch slides');
+        setLoading(false);
+      }
+    };
+
+    fetchSlides();
+  }, []);
+
+  if (error) {
+    return (
+      <AlertBox
+        message={error}
+        type="error"
+      />
+    );
+  }
+
   return (
-    <div className={style['carousel-wrapper']}>
-      <div className={style['carousel']}>
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          loop={true}
-          navigation
-          autoplay={{ delay: 3000 }}
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            800: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1100: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-          }}
-        >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <div className={style['carousel__content']}>
-                <h3>{slide.title}</h3>
-                <p>{slide.content}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+    <div className={style['carousel']}>
+      <>{loading && <Loading />}</>
+      <>
+        {slides.length > 0 && (
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            loop={true}
+            navigation
+            autoplay={{ delay: 3000 }}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              800: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1100: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+            }}
+          >
+            {slides.map((slide) => (
+              <SwiperSlide key={slide.id}>
+                <div className={style['carousel__content']}>
+                  <h3>{slide.title}</h3>
+                  <p>{slide.description}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+      </>
     </div>
   );
 };

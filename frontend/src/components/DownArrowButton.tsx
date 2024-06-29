@@ -1,12 +1,12 @@
 import React from 'react';
 import style from '@/styles/DownArrowButton.module.scss';
 
-interface Props {
+interface ArrowButtonProps {
   onClick: () => void;
   isVisible: boolean;
 }
 
-const DownArrowButton: React.FC<Props> = ({ onClick, isVisible }) => {
+const DownArrowButton: React.FC<ArrowButtonProps> = ({ onClick, isVisible }) => {
   return (
     <>
       {isVisible && (
