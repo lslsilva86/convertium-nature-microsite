@@ -23,7 +23,10 @@ const AlertBox: React.FC<AlertBoxProps> = ({ message, type }) => {
   }
 
   return (
-    <div className={`alert ${type}`}>
+    <div
+      className={`alert ${type}`}
+      role="alert"
+    >
       <span className="alert__text">{message}</span>
       <span
         className="alert__close"
