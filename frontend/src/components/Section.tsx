@@ -34,8 +34,8 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(({ isVisible, ind
       variants={variants}
     >
       <div>
-        {index === 0 && <SlideOne />}
-        {index === 1 && <SlideTwo />}
+        {index === 0 && <SlideOne controls={controls} />}
+        {index === 1 && <SlideTwo controls={controls} />}
       </div>
     </motion.section>
   );

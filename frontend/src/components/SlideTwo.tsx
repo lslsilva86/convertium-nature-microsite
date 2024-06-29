@@ -5,6 +5,8 @@ import Carousel from './Carousel';
 import axios from 'axios';
 import Loader from './Loader';
 import AlertBox from './AlertBox';
+import { motion, AnimationControls } from 'framer-motion';
+import AnimatedBackground from './AnimatedBackground';
 
 interface ApiResponse {
   title: string;
@@ -15,7 +17,11 @@ interface ApiResponse {
   };
 }
 
-const SlideTwo: React.FC = () => {
+interface SlideTwoProps {
+  controls: AnimationControls;
+}
+
+const SlideTwo: React.FC<SlideTwoProps> = ({ controls }) => {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,6 +42,11 @@ const SlideTwo: React.FC = () => {
     fetchData();
   }, []);
 
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
   if (loading) {
     return <Loader elmClass="slideTwo" />;
   }
@@ -46,9 +57,16 @@ const SlideTwo: React.FC = () => {
         className={styles['slide-two']}
         role="region"
       >
+        <AnimatedBackground />
         <ResponsiveBgImage backgroundImages={data.backgroundImages} />
         <div className={styles['slide-two__content']}>
-          <h2>{data.title}</h2>
+          <motion.h2
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+          >
+            {data.title}
+          </motion.h2>
           <Carousel />
         </div>
       </div>

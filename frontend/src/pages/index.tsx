@@ -69,6 +69,10 @@ export default function Home() {
           rel="icon"
           href="/favicon.ico"
         />
+        <link
+          rel="preconnect"
+          href="http://localhost:4000"
+        ></link>
       </Head>
       <Header isVisible={currentSectionIndex === 1} />
       <main className={`${styles.home} ${poppins.className}`}>

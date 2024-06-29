@@ -20,6 +20,7 @@ $base: 0.6rem;
 }
 
 .downArrow {
+  $this: &;
   z-index: $z-index-down-arrow;
   position: absolute;
   bottom: 0;
@@ -34,6 +35,11 @@ $base: 0.6rem;
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    &:hover {
+      .downArrow__chevron {
+        animation-play-state: paused;
+      }
+    }
   }
   &__chevron {
     position: absolute;
