@@ -4,6 +4,7 @@ import styles from '@/styles/SlideOne.module.scss';
 import axios from 'axios';
 import AlertBox from './AlertBox';
 import Loader from './Loader';
+import { motion, useAnimation, AnimationControls } from 'framer-motion';
 
 interface ApiResponse {
   videoUrl: string;
@@ -13,7 +14,11 @@ interface ApiResponse {
   };
 }
 
-const SlideOne: React.FC = () => {
+interface SlideOneProps {
+  controls: AnimationControls;
+}
+
+const SlideOne: React.FC<SlideOneProps> = ({ controls }) => {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -34,6 +39,17 @@ const SlideOne: React.FC = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      controls.start('visible');
+    }
+  }, [data, controls]);
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
+
   if (loading) {
     return <Loader elmClass="slideOne" />;
   }
@@ -46,8 +62,20 @@ const SlideOne: React.FC = () => {
       >
         <FullScreenVideo videoUrl={data.videoUrl} />
         <div className={styles['slide-one__content']}>
-          <h1>{data.content.title}</h1>
-          <p>{data.content.description}</p>
+          <motion.h1
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+          >
+            {data.content.title}
+          </motion.h1>
+          <motion.p
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+          >
+            {data.content.description}
+          </motion.p>
         </div>
       </div>
     );
