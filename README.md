@@ -40,6 +40,10 @@ To get started with the `convertium-nature-microsite`, follow these steps:
 14. **SVG Images**: Optimize file size and improve loading speed by using SVG images.
 15. **Automated Testing**: Execute automated tests using Jest to ensure the reliability of frontend components as project progresses.
 
+![Lighthouse score - Desktop](https://github.com/lslsilva86/convertium-nature-microsite/blob/main/_screenprints/lighthouse-desktop.png)
+![Lighthouse score - Mobile](https://github.com/lslsilva86/convertium-nature-microsite/blob/main/_screenprints/lighthouse-mobile.png)
+![Automated test results](https://github.com/lslsilva86/convertium-nature-microsite/blob/main/_screenprints/testcases.png)
+
 ## Tasks completed
 
 - ✔️ Use one of any modern JavaScript frameworks and its libraries that runs on Node.js environment is a must.
