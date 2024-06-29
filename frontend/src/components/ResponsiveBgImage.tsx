@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react';
 
-const ResponsiveBgImage: React.FC = () => {
+interface ResponsiveBgImageProps {
+  backgroundImages: {
+    xl: string;
+    md: string;
+    sm: string;
+  };
+}
+
+const ResponsiveBgImage: React.FC<ResponsiveBgImageProps> = ({ backgroundImages }) => {
   const [backgroundImage, setBackgroundImage] = useState<string>('');
 
   useEffect(() => {
     const updateBackgroundImage = () => {
       const width = window.innerWidth;
-      const height = window.innerHeight;
 
       if (width >= 1920) {
-        setBackgroundImage('/images/img-1920x1200.jpg');
+        setBackgroundImage(backgroundImages.xl);
       } else if (width >= 1280) {
-        setBackgroundImage('/images/img-1280x800.jpg');
+        setBackgroundImage(backgroundImages.md);
       } else if (width >= 800) {
-        setBackgroundImage('/images/img-800x368.jpg');
+        setBackgroundImage(backgroundImages.sm);
       } else {
-        setBackgroundImage('/images/img-800x368.jpg');
+        setBackgroundImage(backgroundImages.sm);
       }
     };
 
@@ -25,14 +32,14 @@ const ResponsiveBgImage: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateBackgroundImage);
     };
-  }, []);
+  }, [backgroundImages]);
 
   return (
     <div
       style={{
         width: '100vw',
         height: '100vh',
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_SERVER_URL as string}${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

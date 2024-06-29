@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from '@/styles/FullScreenVideo.module.scss';
 
-const FullScreenVideo: React.FC = () => {
+interface FullScreenVideoProps {
+  videoUrl: string;
+}
+
+const FullScreenVideo: React.FC<FullScreenVideoProps> = ({ videoUrl }) => {
   return (
     <div className={styles['video-container']}>
       <video
@@ -11,7 +15,7 @@ const FullScreenVideo: React.FC = () => {
         className={styles['video']}
       >
         <source
-          src="https://www.w3schools.com/html/mov_bbb.mp4"
+          src={videoUrl}
           type="video/mp4"
         />
         Your browser does not support the video tag.

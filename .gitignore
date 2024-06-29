@@ -1,3 +1,4 @@
 .history/
 api/node_modules/
 api/dist
+frontend/.env
