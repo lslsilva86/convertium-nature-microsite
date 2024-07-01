@@ -4,7 +4,7 @@ interface AnimatedBackgroundProps {}
 
 const AnimatedBackground: React.FC<AnimatedBackgroundProps> = () => {
   useEffect(() => {
-    const particleNum = 200;
+    const particleNum = 500;
     const container = document.querySelector('.background-container');
 
     if (container) {
