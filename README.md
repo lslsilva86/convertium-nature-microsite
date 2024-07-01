@@ -4,18 +4,21 @@
 
 The Convertium Nature is a responsive microsite that showcases a full-screen layout, smooth animations created following industry best practices.
 
-## Getting Started
+## Getting Started (Development)
 
 To get started with the `convertium-nature-microsite`, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/lslsilva86/convertium-nature-microsite.git`
 2. Navigate to the project directory: `cd convertium-nature-microsite/api`
 3. Install the dependencies: `npm install`
-4. Start the development server to run api: `npm start`
-5. The development server will run on port 4000
-6. Next navigate to the frontend project directory: `cd convertium-nature-microsite/frontend`
-7. Install the dependencies: `npm install`
-8. Start the development server to run frontend: `npm start`
+4. Create a dist folder: `npm run build`
+5. Start the development server to run api: `npm start`
+6. The development server will run on port 4000
+7. Navigate to the frontend project directory (in a new terminal): `cd convertium-nature-microsite/frontend`
+8. Create a .env file from the .env.sample and add your values if any
+9. Install the dependencies: `npm install`
+10. Build .next folder: `npm run build`
+11. Start the development server to run frontend: `npm run dev`
 
 ## Run Tests
 
