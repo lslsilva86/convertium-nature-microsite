@@ -187,14 +187,14 @@ a {
     top: 0;
     bottom: 0;
     z-index: 2;
-    animation: move-background 50s linear infinite;
+    animation: move-background 15s linear infinite;
   }
 }
 
 .circle-container {
   $particleNum: 500;
   $particleColor: hsl(180, 100%, 80%);
-  $particleBaseSize: 3;
+  $particleBaseSize: 5;
 
   position: absolute;
   width: 100vw;
@@ -208,7 +208,7 @@ a {
       $startPositionX: random(100);
       $startPositionY: 100 - random(100);
       $framesName: 'move-frames-' + $i;
-      $moveDuration: 150s;
+      $moveDuration: 500s;
       $fadeDuration: 10s + random(10s);
 
       .circle {
