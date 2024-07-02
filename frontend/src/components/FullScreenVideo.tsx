@@ -12,6 +12,7 @@ const FullScreenVideo: React.FC<FullScreenVideoProps> = ({ videoUrl }) => {
         autoPlay
         muted
         loop
+        playsInline
         className={styles['video']}
       >
         <source

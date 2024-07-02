@@ -37,7 +37,7 @@ To get started with the `convertium-nature-microsite`, follow these steps:
 6. **Best Practices**: Follow coding best practices to achieve good scores in Lighthouse and Google's PageSpeed Insights. This includes using optimized images(tinyPNG), minifying CSS and JavaScript, enabling caching, and implementing responsive design principles.
 7. **Next.js**: Utilize Next.js for server-side rendering to improve SEO and provide a better user experience instead of React.JS alone.
 8. **TypeScript**: Use TypeScript to maintain type safety and improve code quality and maintainability.
-9. **SCSS**: Use SCSS to maintain frontend styles and adhere to better naming conventions using BEM.
+9. **SCSS**: Use SCSS to maintain frontend styles and adhere to better naming conventions using BEM. Followed [Concentric CSS](https://rhodesmill.org/brandon/2011/concentric-css/) ordering.
 10. **Theme**: Use of SCSS variables and mixins to create fully customizable theme to reduce development effort on tidious theming tasks.
 11. **CDN**: Use of CDN assests like Google fonts to improve faster page loads.
 12. **Framer Motion**: Utilize Framer Motion, a powerful animation library, to create stunning frontend animations.
